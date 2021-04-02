@@ -1,8 +1,8 @@
 import React from 'react';
-import ValidationSample from './ValidationSample';
+import ScrollerBox from './ScrollBox';
 
 const App = () => {
-  return <ValidationSample />;
+  return <ScrollerBox />;
 };
 
 export default App;
