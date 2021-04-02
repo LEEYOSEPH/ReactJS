@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
-class ScrollerBox extends Component {
+class ScrollBox extends Component {
+  ScrollToBottom = () => {
+    const { scrollHeight, clientHeight } = this.box;
+    this.box.scrollTop = scrollHeight - clientHeight;
+  };
   render() {
     const style = {
       border: '1px solid black',
@@ -29,4 +33,4 @@ class ScrollerBox extends Component {
   }
 }
 
-export default ScrollerBox;
+export default ScrollBox;
