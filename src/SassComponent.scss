@@ -1,7 +1,11 @@
-@import './styles/utils.scss';
+@import 'utils.scss';
 
 .SassComponent {
   display: flex;
+  background: $oc-gray-2;
+  @include media('<768ps') {
+    background: $oc-gray-9;
+  }
   .box {
     //일반 css 에서는 .SassComponent .box와 마찬기
     background: red;
