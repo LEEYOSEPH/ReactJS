@@ -1,8 +1,28 @@
 import React from 'react';
-import Average from './Average';
+import logo from './logo.svg';
+import './App.css';
+import { computeHeadingLevel } from '@testing-library/dom';
 
-const App = () => {
-  return <Average />;
-};
+class App extends computeHeadingLevel {
+  render() {
+    return (
+      <div className="App">
+        <header>
+          <img src={logo} className="logo" alt="logo" />
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+          <a
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </header>
+      </div>
+    );
+  }
+}
 
 export default App;
