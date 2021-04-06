@@ -1,7 +1,12 @@
 import React from 'react';
+import './App.css';
 
 const App = () => {
   const name = undefined;
-  return <div>{name || '리액트'}</div>;
+  const style = {
+    background: 'black',
+    color: 'aqua',
+  };
+  return <div style={style}>{name || '리액트'}</div>;
 };
 export default App;
