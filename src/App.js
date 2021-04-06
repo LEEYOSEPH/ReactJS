@@ -1,13 +1,8 @@
-import React, { Component } from 'react';
-import MyComponent from './MyComponent';
+import React from 'react';
+import Counter from './Counter';
 
-class App extends Component {
-  render() {
-    return (
-      <MyComponent name="React" favNumber={1}>
-        React
-      </MyComponent>
-    );
-  }
-}
+const App = () => {
+  return <Counter />;
+};
+
 export default App;
