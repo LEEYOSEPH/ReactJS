@@ -1,52 +1,41 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class EventPractice extends Component {
-  state = {
-    message: '',
-    username: '',
+const EventPractice = () => {
+  const [username, setUsername] = useState('');
+  const [message, setMessage] = useState('');
+  const onChangeUsername = (e) => setUsername(e.target.value);
+  const onChangeMessage = (e) => setMessage(e.target.value);
+  const onClick = () => {
+    alert(username + ':' + message);
+    setUsername('');
+    setMessage('');
   };
-
-  handleChage = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
-  handleClick = () => {
-    alert(this.state.username + ':' + this.state.message);
-    this.setState({
-      message: '',
-      username: '',
-    });
-  };
-
-  hnadleKeyPress = (e) => {
+  const onKeyPress = (e) => {
     if (e.key === 'Enter') {
-      this.handleClick();
+      onClick();
     }
   };
-  render() {
-    return (
-      <div>
-        <h1>이벤트 연습</h1>
-        <input
-          type="text"
-          name="username"
-          placeholder="writeanything"
-          value={this.state.username}
-          onChange={this.handleChage}
-        />
-        <input
-          type="text"
-          name="message"
-          placeholder="writeanything"
-          value={this.state.message}
-          onChange={this.handleChage}
-          onKeyPress={this.hnadleKeyPress}
-        />
-        <button onClick={this.handleClick}>check</button>
-      </div>
-    );
-  }
-}
+
+  return (
+    <div>
+      <h1>Event</h1>
+      <input
+        text="text"
+        name="username"
+        placeholder="write"
+        value={username}
+        onChange={onChangeUsername}
+      />
+      <input
+        text="text"
+        name="message"
+        placeholder="write"
+        value={message}
+        onChange={onChangeMessage}
+      />
+      <button onClick={onClick}>check</button>
+    </div>
+  );
+};
 
 export default EventPractice;
