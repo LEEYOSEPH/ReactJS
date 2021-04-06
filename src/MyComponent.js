@@ -1,7 +1,11 @@
 import React from 'react';
 
-const MyComponent = () => {
-  return <div>새롭고 멋진 컴포넌트</div>;
+const MyComponent = (props) => {
+  return <div>안녕하세요, 제이름은 {props.name}이에요</div>;
+};
+
+MyComponent.defaultProps = {
+  name: '기본이름',
 };
 
 export default MyComponent;
