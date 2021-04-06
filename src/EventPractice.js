@@ -32,6 +32,7 @@ const EventPractice = () => {
         placeholder="write"
         value={message}
         onChange={onChangeMessage}
+        onKeyPress={onKeyPress}
       />
       <button onClick={onClick}>check</button>
     </div>
