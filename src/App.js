@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import MyComponent from './MyComponent';
 
-const App = () => {
-  return <MyComponent>React</MyComponent>;
-};
+class App extends Component {
+  render() {
+    return (
+      <MyComponent name="React" favNumber={1}>
+        React
+      </MyComponent>
+    );
+  }
+}
 export default App;
