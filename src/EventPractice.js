@@ -1,51 +1,52 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 
-const EventPractice = () => {
-  const [form, setForm] = useState({
-    username: '',
+class EventPractice extends Component {
+  state = {
     message: '',
-  });
-  const { username, message } = form;
-  const onChange = (e) => {
-    const nextForm = {
-      ...form, //기존의 form 내용을 이 자리에 복사한뒤
-      [e.target.name]: e.target.value, // 원하는 값을 덮어 씌우기
-    };
-    setForm(nextForm);
+    username: '',
   };
-  const onClick = () => {
-    alert(username + ': ' + message);
-    setForm({
-      username: '',
-      message: '',
+
+  handleChage = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
     });
   };
-  const onKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      onClick();
-    }
+  handleClick = () => {
+    alert(this.state.username + ':' + this.state.message);
+    this.setState({
+      message: '',
+      username: '',
+    });
   };
 
-  return (
-    <div>
-      <h1>이벤트 연습</h1>
-      <input
-        type="text"
-        name="username"
-        placeholder="사용자명"
-        value={username}
-        onChange={onChange}
-      />
-      <input
-        type="text"
-        name="message"
-        value={message}
-        onChange={onChange}
-        onKeyPress={onKeyPress}
-      />
-      <button onClick={onClick}>확인</button>
-    </div>
-  );
-};
+  hnadleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      this.handleClick();
+    }
+  };
+  render() {
+    return (
+      <div>
+        <h1>이벤트 연습</h1>
+        <input
+          type="text"
+          name="username"
+          placeholder="writeanything"
+          value={this.state.username}
+          onChange={this.handleChage}
+        />
+        <input
+          type="text"
+          name="message"
+          placeholder="writeanything"
+          value={this.state.message}
+          onChange={this.handleChage}
+          onKeyPress={this.hnadleKeyPress}
+        />
+        <button onClick={this.handleClick}>check</button>
+      </div>
+    );
+  }
+}
 
 export default EventPractice;
