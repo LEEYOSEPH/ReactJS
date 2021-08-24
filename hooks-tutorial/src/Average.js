@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 
 const getAverage = (numbers) => {
   if (numbers.length === 0) return 0;
@@ -9,7 +9,7 @@ const getAverage = (numbers) => {
 const Average = () => {
   const [list, setList] = useState([]);
   const [number, setNumber] = useState([]);
-
+  const inputEl = useRef(null);
   const onChange = useCallback((e) => {
     setNumber(e.target.value);
   }, []);
@@ -18,6 +18,7 @@ const Average = () => {
       const nextList = list.concat(parseInt(number));
       setList(nextList);
       setNumber("");
+      inputEl.current.focus();
     },
     [number, list]
   );
@@ -25,7 +26,7 @@ const Average = () => {
   const avg = useMemo(() => getAverage(list), [list]);
   return (
     <div>
-      <input value={number} onChange={onChange} />
+      <input value={number} onChange={onChange} ref={inputEl} />
       <button onClick={onInsert}>add</button>
       <ul>
         {list.map((value, index) => {
