@@ -7,7 +7,7 @@ const App = () => {
   const onClick = async () => {
     try {
       const response = await aioxs.get(
-        'https://jsonplaceholder.typicode.com/todos/1',
+        'https://newsapi.org/v2/top-headlines?country=kr&apiKey=b1c635b1d48343caa39720456882ee30',
       );
       setDate(response.data);
     } catch (error) {
