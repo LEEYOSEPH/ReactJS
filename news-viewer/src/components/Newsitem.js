@@ -30,7 +30,7 @@ const NeswItemBlock = styled.div`
     margin-top: 3rem;
   }
 `;
-const Newsitem = ([article]) => {
+const Newsitem = ({ article }) => {
   const { title, description, url, urlToImage } = article;
   return (
     <NeswItemBlock>
@@ -47,6 +47,7 @@ const Newsitem = ([article]) => {
             {title}
           </a>
         </h2>
+        <p>{description}</p>
       </div>
     </NeswItemBlock>
   );
