@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import palette from '../../../lib/palette';
+import palette from '../../lib/styles/palette';
 import { Link } from 'react-router-dom';
 
 /* 회원가입/ 로그인 페이지 레이아웃 */
@@ -29,7 +29,7 @@ const WhiteBox = styled.div`
     font-weight: bold;
     letter-spacing: 2px;
   }
-  box-sizing: 0 0 8px rgba(0, 0, 0, 0.025);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.025);
   padding: 2rem;
   width: 360px;
   background: white;

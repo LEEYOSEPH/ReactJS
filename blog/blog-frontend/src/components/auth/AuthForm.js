@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import palette from '../../../lib/palette';
-import Button from '../Button';
+import palette from '../../lib/styles/palette';
+import Button from '../common/Button';
 import { Link } from 'react-router-dom';
 
 /* 회원가입 또는 로그인 폼 */
@@ -15,7 +15,7 @@ const AuthFormBlock = styled.div`
 `;
 
 /* 스타일링된 input */
-const StyledInput = styled.div`
+const StyledInput = styled.input`
   font-size: 1rem;
   border: none;
   border-bottom: 1px solid ${palette.gray[5]};
