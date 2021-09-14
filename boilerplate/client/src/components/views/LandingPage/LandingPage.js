@@ -1,6 +1,18 @@
+import axios from 'axios';
 import React from 'react';
+import { withRouter } from 'react-router';
 
-const LandingPage = () => {
+const LandingPage = (props) => {
+  const onClickHandler = () => {
+    axios.get('/api/users/logout').then((response) => {
+      if (response.data.success) {
+        props.history.push('/login');
+      } else {
+        alert('Failed LogOut');
+      }
+    });
+  };
+
   return (
     <div
       style={{
@@ -12,8 +24,10 @@ const LandingPage = () => {
       }}
     >
       <h2> Strat page</h2>
+
+      <button onClick={onClickHandler}>LOGOUT</button>
     </div>
   );
 };
 
-export default LandingPage;
+export default withRouter(LandingPage);
