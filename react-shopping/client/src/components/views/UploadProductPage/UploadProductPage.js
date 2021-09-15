@@ -5,13 +5,13 @@ import FileUpload from '../../utils/FileUpload';
 const { Title } = Typography;
 const { TextArea } = Input;
 const continents = [
-  { ket: 1, value: 'Afica' },
-  { ket: 2, value: 'Europe' },
-  { ket: 3, value: 'Asia' },
-  { ket: 4, value: 'North America' },
-  { ket: 5, value: 'South America' },
-  { ket: 6, value: 'Australia' },
-  { ket: 7, value: 'Antarctica' },
+  { key: 1, value: 'Afica' },
+  { key: 2, value: 'Europe' },
+  { key: 3, value: 'Asia' },
+  { key: 4, value: 'North America' },
+  { key: 5, value: 'South America' },
+  { key: 6, value: 'Australia' },
+  { key: 7, value: 'Antarctica' },
 ];
 
 const UploadProductPage = () => {
