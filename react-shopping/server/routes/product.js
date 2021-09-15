@@ -43,4 +43,18 @@ router.post('/', (req, res) => {
     }
   });
 });
+
+router.post('/products', (req, res) => {
+  // produc collection안에 있는 데이터 가져오기
+
+  Product.find()
+    .populate('writer')
+    .exec((err, productInfo) => {
+      if (err) {
+        return res.status(400).json({ success: false, err });
+      } else {
+        return res.status(200).json({ success: true, productInfo });
+      }
+    });
+});
 module.exports = router;
