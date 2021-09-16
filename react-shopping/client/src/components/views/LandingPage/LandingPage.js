@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Icon, Col, Card, Row } from 'antd';
+import { Icon, Col, Card, Row, Button } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import ImagesSlider from '../../utils/ImagesSlider';
 
 function LandingPage() {
   const [products, setProducts] = useState([]);
+  const [skip, setSkip] = useState(0);
+  const [limit, setLimit] = useState(8);
 
   useEffect(() => {
-    axios.post('/api/product/products').then((response) => {
+    let body = {
+      skip: skip,
+      limit: limit,
+    };
+    axios.post('/api/product/products', body).then((response) => {
       if (response.data.success) {
         setProducts(response.data.productInfo);
       } else {
@@ -16,6 +22,10 @@ function LandingPage() {
       }
     });
   }, []);
+
+  const loadMoreHandler = () => {
+    alert('zz');
+  };
 
   const renderCards = products.map((product, index) => {
     return (
@@ -26,6 +36,7 @@ function LandingPage() {
       </Col>
     );
   });
+
   return (
     <div style={{ width: '75%', margin: '3rem auto' }}>
       <div style={{ textAlign: 'center' }}>
@@ -41,7 +52,7 @@ function LandingPage() {
       <Row gutter={(16, 16)}>{renderCards}</Row>
 
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <button>더보기</button>
+        <Button onClick={loadMoreHandler}>더보기</Button>
       </div>
     </div>
   );
