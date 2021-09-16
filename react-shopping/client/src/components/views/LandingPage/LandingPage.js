@@ -73,11 +73,27 @@ function LandingPage() {
     setSkip(0);
   };
 
+  const handlePrice = (value) => {
+    const data = price;
+    let arry = [];
+
+    for (let key in data) {
+      if (data[key]._id === parseInt(value, 10)) {
+        arry = data[key].array;
+      }
+    }
+    return arry;
+  };
+
   const handleFilters = (filters, category) => {
     const newFilters = { ...Filters };
     newFilters[category] = filters;
-
+    if (category === 'price') {
+      let priceValues = handlePrice(filters);
+      newFilters[category] = priceValues;
+    }
     showFilterResults(newFilters);
+    setFilters(newFilters);
   };
 
   return (
