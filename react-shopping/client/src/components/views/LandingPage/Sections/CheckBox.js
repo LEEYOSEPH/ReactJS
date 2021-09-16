@@ -38,11 +38,13 @@ const CheckBox = (props) => {
     ));
 
   return (
-    <Collapse defaultActiveKey={['1']}>
-      <Panel header="Continents" key="1">
-        {renderCheckBoxList()}
-      </Panel>
-    </Collapse>
+    <div>
+      <Collapse defaultActiveKey={['1']}>
+        <Panel header="Continents" key="1">
+          {renderCheckBoxList()}
+        </Panel>
+      </Collapse>
+    </div>
   );
 };
 

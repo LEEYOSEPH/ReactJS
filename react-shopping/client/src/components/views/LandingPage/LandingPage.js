@@ -4,7 +4,8 @@ import { Icon, Col, Card, Row, Button } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import ImagesSlider from '../../utils/ImagesSlider';
 import CheckBox from './Sections/CheckBox';
-import { continents } from './Sections/Datas';
+import RadioBox from './Sections/RadioBox';
+import { continents, price } from './Sections/Datas';
 
 function LandingPage() {
   const [products, setProducts] = useState([]);
@@ -87,15 +88,25 @@ function LandingPage() {
         </h2>
       </div>
 
-      {/* Filter */}
-      <CheckBox
-        list={continents}
-        handleFilters={(filters) => handleFilters(filters, 'continents')}
-      />
+      <Row gutter={[16, 16]}>
+        <Col lg={12} xs={24}>
+          {/* Filter */}
+          <CheckBox
+            list={continents}
+            handleFilters={(filters) => handleFilters(filters, 'continents')}
+          />
+        </Col>
+        <Col lg={12} xs={24}>
+          <RadioBox
+            list={price}
+            handleFilters={(filters) => handleFilters(filters, 'price')}
+          />
+        </Col>
+      </Row>
 
       {/* Search */}
 
-      <Row gutter={(16, 16)}>{renderCards}</Row>
+      <Row gutter={[16, 16]}>{renderCards}</Row>
       <br />
       {postSize >= limit && (
         <div style={{ display: 'flex', justifyContent: 'center' }}>
