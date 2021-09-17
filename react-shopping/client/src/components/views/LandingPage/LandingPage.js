@@ -68,7 +68,7 @@ function LandingPage() {
     let body = {
       skip: 0,
       limit: limit,
-      filters: filters,
+      filters: Filters,
     };
 
     getProducts(body);
@@ -99,7 +99,16 @@ function LandingPage() {
   };
 
   const updateSearchTerm = (newSearchTerm) => {
+    let body = {
+      skip: 0,
+      limit: limit,
+      filters: Filters,
+      searchTerm: searchTerm,
+    };
+
+    setSkip(0);
     setSearchTerm(newSearchTerm);
+    getProducts(body);
   };
   return (
     <div style={{ width: '75%', margin: '3rem auto' }}>
