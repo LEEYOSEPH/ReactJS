@@ -64,7 +64,7 @@ function LandingPage() {
     );
   });
 
-  const showFilterResults = (filters) => {
+  const showFilterResults = (Filters) => {
     let body = {
       skip: 0,
       limit: limit,
